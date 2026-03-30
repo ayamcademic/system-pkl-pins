@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --pins-primary:#B61F24;
+  --pins-primary-hover:#8F171B;
+  --pins-mahogany:#1A1614;
+  --pins-bg:#F7F1E6;
+  --pins-beige:#EFE4D2;
+  --pins-text:#111111;
+}
+
+html{
+  min-height: 100%;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(239,228,210,0.88), rgba(247,241,230,0)),
+    radial-gradient(900px 500px at 90% 10%, rgba(182,31,36,0.10), rgba(247,241,230,0)),
+    linear-gradient(180deg, rgba(251,248,242,1), rgba(247,241,230,1));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('/images/halftone.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+.pins-btn{
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition;
+}
+.pins-btn-primary{
+  @apply pins-btn bg-primary text-white hover:bg-primary-hover;
+}
+.pins-btn-ghost{
+  @apply pins-btn bg-transparent text-text-main hover:bg-black/5;
+}
+.pins-card{
+  @apply rounded-2xl bg-surface-light shadow-soft border border-black/5;
+}
+
+[x-cloak] { display: none !important; }
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(182, 31, 36, 0.6);
+  box-shadow: 0 0 0 4px rgba(182, 31, 36, 0.12);
+}
